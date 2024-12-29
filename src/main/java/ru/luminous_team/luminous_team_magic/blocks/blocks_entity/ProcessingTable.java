@@ -18,11 +18,10 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -35,13 +34,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.Nullable;
 import ru.luminous_team.luminous_team_magic.gui.TableContainer;
 import ru.luminous_team.luminous_team_magic.gui.TableScreen;
 
 import java.util.Collections;
 import java.util.List;
 
-public class ProcessingTable extends Block implements SimpleWaterloggedBlock, EntityBlock {
+public class ProcessingTable extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public ProcessingTable(Properties properties) {
@@ -101,7 +101,6 @@ public class ProcessingTable extends Block implements SimpleWaterloggedBlock, En
             return dropsOriginal;
         return Collections.singletonList(new ItemStack(this, 1));
     }
-
 
 
     @Override
@@ -165,5 +164,16 @@ public class ProcessingTable extends Block implements SimpleWaterloggedBlock, En
             return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
         else
             return 0;
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState p_49232_) {
+        return RenderShape.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_153212_, BlockState p_153213_, BlockEntityType<T> p_153214_) {
+        return createTickerHelper(p_153214_, ModBlockEntities.PROCESSING_TABLE.get(), TableBlockEntity::tick);
     }
 }

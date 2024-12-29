@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/luminous-team-magic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/luminous-team-magic.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/luminous-team-magic.test.iml" filepath="$PROJECT_DIR$/.idea/modules/luminous-team-magic.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.luminous_team.luminous-team-magic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.luminous_team.luminous-team-magic.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.luminous_team.luminous-team-magic.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.luminous_team.luminous-team-magic.test.iml" />
     </modules>
   </component>
 </project>

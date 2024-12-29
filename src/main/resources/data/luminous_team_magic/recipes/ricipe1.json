@@ -1,5 +1,5 @@
 {
-  "type": "luminous_team_magic:processing_table_recipe",
+  "name": "luminous_team_magic:processing_table_recipe",
   "ingredient": {
     "item": "minecraft:iron_ingot"
   },

@@ -18,6 +18,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import ru.luminous_team.luminous_team_magic.LuminousTeamMagic;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -276,5 +277,9 @@ public class TableContainer extends AbstractContainerMenu implements Supplier<Ma
     @Override
     public void clearContent() {
 
+    }
+
+    public BlockEntity getBlockEntity(){
+        return boundBlockEntity;
     }
 }

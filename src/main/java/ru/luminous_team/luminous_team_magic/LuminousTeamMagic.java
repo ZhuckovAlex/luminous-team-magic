@@ -21,7 +21,12 @@ import ru.luminous_team.luminous_team_magic.blocks.blocks_entity.ModBlockEntitie
 import ru.luminous_team.luminous_team_magic.gui.LTMMenus;
 import ru.luminous_team.luminous_team_magic.items.LTMItems;
 import ru.luminous_team.luminous_team_magic.recipes.LTMRecipes;
+import ru.luminous_team.luminous_team_magic.recipes.TableRecipes;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -39,7 +44,7 @@ public class LuminousTeamMagic {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "luminous_team_magic";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
 
     public LuminousTeamMagic() {
@@ -49,30 +54,9 @@ public class LuminousTeamMagic {
         LTMMenus.REGISTRY.register(modEventBus);
         LTMRecipes.SERIALIZERS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
+        TableRecipes.load();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-
-        }
-    }
 }
