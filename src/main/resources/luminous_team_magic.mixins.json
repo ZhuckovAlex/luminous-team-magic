@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ru.luminous_team.luminous_team_magic.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "luminous_team_magic.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

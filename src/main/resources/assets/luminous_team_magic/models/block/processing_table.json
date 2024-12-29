@@ -1,0 +1,9 @@
+{
+  "parent": "luminous_team_magic:custom/table_-_converted",
+  "textures": {
+    "all": "luminous_team_magic:block/processing_table",
+    "particle": "luminous_team_magic:block/processing_table",
+    "0": "luminous_team_magic:block/processing_table"
+  },
+  "render_type": "cutout"
+}

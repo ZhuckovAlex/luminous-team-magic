@@ -1,0 +1,13 @@
+{
+  "type": "luminous_team_magic:processing_table_recipe",
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "fuel": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "item": "minecraft:gold_ingot",
+    "count": 1
+  }
+}
