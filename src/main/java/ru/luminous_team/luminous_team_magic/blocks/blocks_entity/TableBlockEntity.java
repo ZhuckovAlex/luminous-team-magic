@@ -10,6 +10,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -149,31 +150,39 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
 	public static void tick(Level level, BlockPos pos, BlockState state, TableBlockEntity pEntity) {
 		ItemStack first = pEntity.stacks.get(0);
 		ItemStack second = pEntity.stacks.get(2);
+		ItemStack result = pEntity.stacks.get(1);
 		String recipe = getRecipe(first, second);
 		if (!recipe.isEmpty() && (pEntity.nameCraft == null || pEntity.nameCraft.isEmpty())){
 			pEntity.progress = 1;
 			pEntity.isCrafted = true;
 			pEntity.nameCraft = recipe;
 		}
-		if (pEntity.isCrafted(pEntity.nameCraft, first, second, pEntity)){
+		if (pEntity.isCrafted(pEntity.nameCraft, first, second, result, pEntity)){
 			pEntity.progress += 1;
 			if (pEntity.progress == 160){
-				pEntity.progress = 1;
-				pEntity.isCrafted = false;
 				ItemStack[] itemsForCraft = TableRecipes.recipes.get(pEntity.nameCraft);
-				pEntity.setItem(1, itemsForCraft[2]);
-				pEntity.setItem(0, new ItemStack(Items.AIR, 1));
-				pEntity.setItem(2, new ItemStack(Items.AIR, 1));
+				if (result.is(itemsForCraft[2].getItem())){
+					pEntity.setItem(1, new ItemStack(result.getItem(), result.getCount() + itemsForCraft[2].getCount()));
+				}else{
+					pEntity.setItem(1, itemsForCraft[2]);
+				}
+
+				pEntity.setItem(0, new ItemStack(first.getItem(), first.getCount() - 1));
+				pEntity.setItem(2, new ItemStack(second.getItem(), second.getCount() - 1));
+				pEntity.isCrafted = false;
+				pEntity.nameCraft = "";
+				pEntity.progress = 1;
 			}
 		} else if (pEntity.isCrafted) {
 			pEntity.isCrafted = false;
 			pEntity.nameCraft = "";
+			pEntity.progress = 1;
 		}
 	}
 
-	public boolean isCrafted(String nameCraft, ItemStack ingredient, ItemStack fuel, TableBlockEntity pEntity){
+	public boolean isCrafted(String nameCraft, ItemStack ingredient, ItemStack fuel, ItemStack result, TableBlockEntity pEntity){
 		ItemStack[] itemsForCraft = TableRecipes.recipes.get(nameCraft);
-		return pEntity.isCrafted && !nameCraft.isEmpty() && itemsForCraft[0].is(ingredient.getItem()) && itemsForCraft[1].is(fuel.getItem());
+		return pEntity.isCrafted && !nameCraft.isEmpty() && itemsForCraft[0].is(ingredient.getItem()) && itemsForCraft[1].is(fuel.getItem()) && (result.getItem() == Items.AIR || itemsForCraft[2].is(result.getItem()));
 	}
 
 
