@@ -22,6 +22,8 @@ import ru.luminous_team.luminous_team_magic.gui.LTMMenus;
 import ru.luminous_team.luminous_team_magic.items.LTMItems;
 import ru.luminous_team.luminous_team_magic.recipes.LTMRecipes;
 import ru.luminous_team.luminous_team_magic.recipes.TableRecipes;
+import ru.luminous_team.luminous_team_magic.world.feature.ModConfiguredFeatures;
+import ru.luminous_team.luminous_team_magic.world.feature.ModPlacedFeatures;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -51,6 +53,8 @@ public class LuminousTeamMagic {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         LTMBlocks.BLOCKS.register(modEventBus);
         LTMItems.ITEMS.register(modEventBus);
+        ModConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
+        ModPlacedFeatures.PLACED_FEATURES.register(modEventBus);
         LTMMenus.REGISTRY.register(modEventBus);
         LTMRecipes.SERIALIZERS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);

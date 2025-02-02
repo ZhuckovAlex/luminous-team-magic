@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "luminous_team_magic:block/raw_crystal_stone"
+  }
+}

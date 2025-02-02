@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "kristal:block/crystal_ore"
+    "layer0": "luminous_team_magic:block/crystal"
   }
 }

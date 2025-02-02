@@ -1,0 +1,8 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "luminous_team_magic:block/crystal",
+    "particle": "luminous_team_magic:block/crystal"
+  },
+  "render_type": "cutout"
+}

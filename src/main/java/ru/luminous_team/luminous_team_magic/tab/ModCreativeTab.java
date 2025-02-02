@@ -10,6 +10,7 @@ public class ModCreativeTab {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(LTMBlocks.PROCESSING_TABLE.get());
+
         }
     };
 }

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "luminous_team_magic:block/raw_crystal_water",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "luminous_team_magic:block/raw_crystal_water",
+      "x": 270
+    },
+    "facing=east": {
+      "model": "luminous_team_magic:block/raw_crystal_water",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "luminous_team_magic:block/raw_crystal_water",
+      "x": 90,
+      "y": 270
+    },
+    "facing=up": {
+      "model": "luminous_team_magic:block/raw_crystal_water"
+    },
+    "facing=down": {
+      "model": "luminous_team_magic:block/raw_crystal_water",
+      "x": 180
+    }
+  }
+}

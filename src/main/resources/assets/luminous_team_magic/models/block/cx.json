@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "kristal:block/crystal_ore",
-    "particle": "kristal:block/crystal_ore"
-  },
-  "render_type": "cutout"
-}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "luminous_team_magic:item/crystal_fire"
+  }
+}

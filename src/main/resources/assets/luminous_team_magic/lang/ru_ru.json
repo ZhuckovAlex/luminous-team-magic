@@ -1,8 +1,9 @@
 {
-  "item.luminous_team_magic.fire_crystal": "Fire Crystal",
-  "item.luminous_team_magic.air_crystal": "Air Crystal",
-  "item.luminous_team_magic.water_crystal": "Water Crystal",
-  "block.luminous_team_magic.processing_table": "Table",
-  "itemGroup.ltm": "LTM",
-  "item.luminous_team_magic.earth_crystal": "Earth Crystal"
+  "item.luminous_team_magic.crystal_air": "Кристалл воздуха",
+  "item.luminous_team_magic.crystal_fire": "Кристалл огня",
+  "item.luminous_team_magic.crystal_water": "Кристалл воды",
+  "item.luminous_team_magic.crystal_stone": "Кристалл камня",
+  "block.luminous_team_magic.crystal": "Кристалл",
+  "block.luminous_team_magic.processing_table": "Стол",
+  "itemGroup.ltm": "LTM"
 }

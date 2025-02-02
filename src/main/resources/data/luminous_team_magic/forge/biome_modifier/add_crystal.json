@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_cave",
+  "features": "luminous_team_magic:raw_crystal_placed",
+  "step": "underground_decoration"
+}
